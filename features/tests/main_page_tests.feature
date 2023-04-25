@@ -6,3 +6,4 @@ Feature: Main Page Tests
     When Click terms of service
     Then Verify terms page opened
 
+
