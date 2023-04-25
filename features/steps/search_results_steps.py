@@ -16,3 +16,8 @@ def verify_on_main_page(context):
     context.app.search_results_page.verify_on_main_page()
 
 
+@then('Verify that 23 products are returned')
+def verify_23_products(context):
+    context.app.search_results_page.verify_23_products()
+
+
