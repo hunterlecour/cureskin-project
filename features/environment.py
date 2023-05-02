@@ -25,16 +25,33 @@ def browser_init(context, test_name):
     # )
 
     # # FIREFOX DRIVER
-    service = Firefox_Service(executable_path=GeckoDriverManager().install())
-    # context.driver = webdriver.Firefox(service=service)
+    # service = Firefox_Service(executable_path=GeckoDriverManager().install())
+    # # context.driver = webdriver.Firefox(service=service)
+    #
+    # # # HEADLESS MODE ####
+    # # # FIREFOX
+    # options = webdriver.FirefoxOptions()
+    # options.add_argument('--headless')
+    # context.driver = webdriver.Firefox(
+    #     options=options, service=service
+    # )
 
-    # # HEADLESS MODE ####
-    # # FIREFOX
-    options = webdriver.FirefoxOptions()
-    options.add_argument('--headless')
-    context.driver = webdriver.Firefox(
-        options=options, service=service
-    )
+    # BROWSER STACK #
+
+    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    bs_user = 'hunterlecour_hWPdTv'
+    bs_key = 'pXs7ZT4NHsRbZkCJgmMV'
+
+    desired_cap = {
+        'browserName': 'Firefox',
+        'bstack:options': {
+            'os': 'OS X',
+            'osVersion': 'Ventura',
+            'sessionName': test_name
+        }
+    }
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
