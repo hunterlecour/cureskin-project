@@ -14,7 +14,7 @@ class Main(Page):
     def open_main_page(self):
         self.open_url('https://shop.cureskin.com/')
 
-    def click_tos(self):
+    def click_on_tos(self):
         self.click(*self.TERMS_OF_SERVICE)
 
     def click_shop_by_prod(self):

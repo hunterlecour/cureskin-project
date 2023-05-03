@@ -6,7 +6,7 @@ def open_main_page(context):
     context.app.main_page.open_main_page()
 
 
-@when('Click terms of service')
+@when('Click on terms of service')
 def click_tos(context):
     context.app.main_page.click_tos()
 
