@@ -8,7 +8,10 @@ Feature: Main Page Tests
 
   Scenario: User can shop by product Face Washes
     Given Open main page
-    When Click on "Shop by product" - select Face Washes
+    When Click on "Shop by product"
+    When Click Face Washes
     Then Verify "Face Wash" is shown
+
+
 
 

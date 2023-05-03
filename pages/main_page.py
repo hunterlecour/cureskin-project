@@ -19,6 +19,8 @@ class Main(Page):
 
     def click_shop_by_prod(self):
         self.click(*self.SHOP_BY_PRODUCT)
+
+    def click_face_washes(self):
         sleep(1)
         # self.driver.wait.until(EC.element_to_be_clickable(*self.FACE_WASHES_BUTTON)).click()
         self.click(*self.FACE_WASHES_BUTTON)

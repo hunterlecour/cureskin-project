@@ -11,9 +11,14 @@ def click_tos(context):
     context.app.main_page.click_tos()
 
 
-@when('Click on "Shop by product" - select Face Washes')
+@when('Click on "Shop by product"')
 def click_shop_by_prod(context):
     context.app.main_page.click_shop_by_prod()
+
+
+@when('Click Face Washes')
+def click_face_washes(context):
+    context.app.main_page.click_face_washes()
 
 
 @then('Verify terms page opened')
