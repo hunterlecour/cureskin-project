@@ -7,8 +7,8 @@ def open_main_page(context):
 
 
 @when('Click on terms of service')
-def click_tos(context):
-    context.app.main_page.click_tos()
+def click_on_tos(context):
+    context.app.main_page.click_on_tos()
 
 
 @when('Click on "Shop by product"')
@@ -16,9 +16,9 @@ def click_shop_by_prod(context):
     context.app.main_page.click_shop_by_prod()
 
 
-@when('Click Face Washes')
-def click_face_washes(context):
-    context.app.main_page.click_face_washes()
+@when('Click on Face Washes')
+def click_on_face_washes(context):
+    context.app.main_page.click_on_face_washes()
 
 
 @then('Verify terms page opened')
