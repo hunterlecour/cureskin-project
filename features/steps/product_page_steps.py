@@ -11,9 +11,9 @@ def add_to_cart(context):
     context.app.product_page.add_to_cart()
 
 
-@when('Verify "added to your cart" confirmation is shown')
-def verify_cart_confirm(context):
-    context.app.product_page.verify_cart_confirm()
+@when('Verify {text} confirmation is shown')
+def verify_cart_confirm(context, text):
+    context.app.product_page.verify_cart_confirm(text)
 
 
 @when('Click "View my cart"')
@@ -21,6 +21,6 @@ def view_my_cart(context):
     context.app.product_page.view_my_cart()
 
 
-@then('Verify user is taken to the cart page')
-def verify_cart_page(context):
-    context.app.product_page.verify_cart_page()
+@then('Verify {text} is visible')
+def verify_cart_page(context, text):
+    context.app.product_page.verify_cart_page(text)

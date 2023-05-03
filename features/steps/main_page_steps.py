@@ -21,13 +21,28 @@ def click_on_face_washes(context):
     context.app.main_page.click_on_face_washes()
 
 
-@then('Verify terms page opened')
-def verify_tos_opens(context):
-    context.app.main_page.verify_tos_opens()
+@when('Click on Sunscreens')
+def click_on_sunscreens(context):
+    context.app.main_page.click_on_sunscreens()
 
 
-@then('Verify "Face Wash" is shown')
-def verify_face_wash_shown(context):
-    context.app.main_page.verify_face_wash_shown()
+@when('Click on first product')
+def click_sunscreen_product(context):
+    context.app.main_page.click_sunscreen_product()
+
+
+@then('Verify {text} page opened')
+def verify_tos_opens(context, text):
+    context.app.main_page.verify_tos_opens(text)
+
+
+@then('Verify {text} is shown')
+def verify_face_wash_shown(context, text):
+    context.app.main_page.verify_face_wash_shown(text)
+
+
+@then('Verify the first product is {text}')
+def verify_first_product_sunscreen(context, text):
+    context.app.main_page.verify_first_product_sunscreen(text)
 
 

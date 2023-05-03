@@ -19,7 +19,5 @@ class Search_Result(Page):
         expected_url = 'https://shop.cureskin.com/'
         assert actual_url == expected_url, f'expected{expected_url} but got {actual_url}'
 
-    def verify_23_products(self):
-        actual_text = self.driver.find_element(*self.PRODUCT_RESULTS).text
-        expected_text = '23 results found for “cure”'
-        assert actual_text == expected_text, f'Should of gotten {expected_text}, but received {actual_text}'
+    def verify_23_products(self, text):
+        self.verify_element(text, *self.PRODUCT_RESULTS)

@@ -15,16 +15,12 @@ class Product(Page):
     def add_to_cart(self):
         self.click(*self.ADD_TO_CART)
 
-    def verify_cart_confirm(self):
+    def verify_cart_confirm(self, text):
         sleep(2)
-        actual_text = self.find_element(*self.SHIPPING_CONFIRM).text
-        expected_text = "VIEW CART"
-        assert actual_text == expected_text
+        self.verify_element(text, *self.SHIPPING_CONFIRM)
 
     def view_my_cart(self):
         self.click(*self.SHIPPING_CONFIRM)
 
-    def verify_cart_page(self):
-        actual_text = self.find_element(*self.VERIFY_CART_PAGE).text
-        expected_result = "Your cart"
-        assert actual_text == expected_result
+    def verify_cart_page(self, text):
+        self.verify_element(text, *self.VERIFY_CART_PAGE)

@@ -10,6 +10,9 @@ class Main(Page):
     SHOP_BY_PRODUCT = (By.XPATH, '//span[text()="Shop by Product" and @class="label"]')
     FACE_WASHES_BUTTON = (By.CSS_SELECTOR, 'list-menu-item[data-title="Face Washes"]')
     FACE_WASH_VERIFICATION = (By.CSS_SELECTOR, 'label[for="Filter-Product type-1"]')
+    SUNSCREENS_BUTTON = (By.CSS_SELECTOR, 'list-menu-item[data-title="Sunscreens"]')
+    SUNSCREEN_PRODUCT = (By.CSS_SELECTOR, 'a.full-unstyled-link[href="/collections/sun-protection/products/sunscreen-spf-30"]')
+    SUNSCREEN_PRODUCT_TITLE = (By.CSS_SELECTOR, 'div.product__title h1.h2')
 
     def open_main_page(self):
         self.open_url('https://shop.cureskin.com/')
@@ -25,17 +28,22 @@ class Main(Page):
         # self.driver.wait.until(EC.element_to_be_clickable(*self.FACE_WASHES_BUTTON)).click()
         self.click(*self.FACE_WASHES_BUTTON)
 
-    def verify_tos_opens(self):
-        expected_text = 'Terms of service'
-        actual_text = self.driver.find_element(*self.TERMS_OF_SERVICE_TITLE).text
+    def click_on_sunscreens(self):
+        sleep(1)
+        self.click(*self.SUNSCREENS_BUTTON)
 
-        assert expected_text == actual_text, f"Expected{expected_text}, but got {actual_text}"
+    def click_sunscreen_product(self):
+        self.click(*self.SUNSCREEN_PRODUCT)
 
-    def verify_face_wash_shown(self):
-        expected_text = 'Face Wash (1)'
-        actual_text = self.driver.find_element(*self.FACE_WASH_VERIFICATION).text
+    def verify_tos_opens(self, text):
+        self.verify_element(text, *self.TERMS_OF_SERVICE_TITLE)
 
-        assert expected_text == actual_text, f"Expected{expected_text}, but got {actual_text}"
+    def verify_face_wash_shown(self, text):
+        self.verify_element(text, *self.FACE_WASH_VERIFICATION)
+
+    def verify_first_product_sunscreen(self, text):
+        self.verify_element(text, *self.SUNSCREEN_PRODUCT_TITLE)
+
 
 
 
