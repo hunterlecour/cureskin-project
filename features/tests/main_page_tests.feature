@@ -26,6 +26,12 @@ Feature: Main Page Tests
      And Verify user is taken to https://shop.cureskin.com/collections/face
      And Click on first face product
      Then Verify first product name has Face in it
+     
+   Scenario: User can shop by category Body
+     Given Open main page
+     When Click on "Shop by category"
+     And Click on Body
+     Then Verify user is taken to https://shop.cureskin.com/collections/body
 
 
 

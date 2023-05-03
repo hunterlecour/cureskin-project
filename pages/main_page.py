@@ -9,6 +9,7 @@ class Main(Page):
     TERMS_OF_SERVICE_TITLE = (By.CSS_SELECTOR, 'div.shopify-policy__title')
     SHOP_BY_PRODUCT = (By.XPATH, '//span[text()="Shop by Product" and @class="label"]')
     SHOP_BY_CATEGORY = (By.XPATH, '//span[text()="Shop by Category" and @class="label"]')
+    BODY_BUTTON = (By.CSS_SELECTOR, 'list-menu-item[data-title="Body"]')
     FACE_BUTTON = (By.CSS_SELECTOR, 'list-menu-item[data-title="Face"]')
     FACE_WASHES_BUTTON = (By.CSS_SELECTOR, 'list-menu-item[data-title="Face Washes"]')
     FACE_WASH_VERIFICATION = (By.CSS_SELECTOR, 'label[for="Filter-Product type-1"]')
@@ -48,6 +49,10 @@ class Main(Page):
 
     def click_on_first_face_product(self):
         self.click(*self.FACE_PRODUCT)
+
+    def click_on_body(self):
+        sleep(1)
+        self.click(*self.BODY_BUTTON)
 
     def verify_tos_opens(self, text):
         self.verify_element(text, *self.TERMS_OF_SERVICE_TITLE)
