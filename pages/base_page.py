@@ -20,3 +20,8 @@ class Page:
         actual_text = self.driver.find_element(*locator).text
 
         assert expected_text == actual_text, f'Expected {expected_text}, but got {actual_text}'
+
+    def verify_url(self, text):
+        actual_url = self.driver.current_url
+        expected_url = text
+        assert actual_url == expected_url, f'expected{expected_url} but got {actual_url}'

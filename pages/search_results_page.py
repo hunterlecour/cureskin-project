@@ -14,10 +14,8 @@ class Search_Result(Page):
     def click_logo_header(self):
         self.click(*self.LOGO_HEADER)
 
-    def verify_on_main_page(self):
-        actual_url = self.driver.current_url
-        expected_url = 'https://shop.cureskin.com/'
-        assert actual_url == expected_url, f'expected{expected_url} but got {actual_url}'
+    def verify_on_main_page(self, text):
+        self.verify_url(text)
 
     def verify_23_products(self, text):
         self.verify_element(text, *self.PRODUCT_RESULTS)

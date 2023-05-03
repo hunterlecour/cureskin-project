@@ -11,9 +11,9 @@ def click_logo_header(context):
     context.app.search_results_page.click_logo_header()
 
 
-@then('Verify user is taken to the main page')
-def verify_on_main_page(context):
-    context.app.search_results_page.verify_on_main_page()
+@then('Verify user is taken to {text}')
+def verify_on_main_page(context, text):
+    context.app.search_results_page.verify_on_main_page(text)
 
 
 @then('Verify that {text}')

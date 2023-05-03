@@ -19,6 +19,14 @@ Feature: Main Page Tests
      And Click on first product
      Then Verify the first product is SPF30 Sunscreen
 
+   Scenario: User can shop by category Face
+     Given Open main page
+     When Click on "Shop by category"
+     And Click on Face
+     And Verify user is taken to https://shop.cureskin.com/collections/face
+     And Click on first face product
+     Then Verify first product name has Face in it
+
 
 
 
