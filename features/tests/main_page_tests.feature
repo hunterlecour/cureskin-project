@@ -6,4 +6,9 @@ Feature: Main Page Tests
     When Click terms of service
     Then Verify terms page opened
 
+  Scenario: User can shop by product Face Washes
+    Given Open main page
+    When Click on "Shop by product" - select Face Washes
+    Then Verify "Face Wash" is shown
+
 
