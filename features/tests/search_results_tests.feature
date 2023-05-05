@@ -8,4 +8,4 @@ Feature: Search Result Tests
 
   Scenario: Correct search results are shown
     Given Open search result "cure" page
-    Then Verify that 23 results found for “cure"
+    Then Verify that 23 results found for “cure”

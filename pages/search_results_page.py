@@ -5,7 +5,7 @@ from pages.base_page import Page
 
 
 class Search_Result(Page):
-    LOGO_HEADER = (By.CSS_SELECTOR, 'img.header__heading-logo.small-hide')
+    LOGO_HEADER = (By.XPATH, '//a[@class="header__heading-link focus-inset"]')
     PRODUCT_RESULTS = (By.ID, 'ProductCount')
 
     def open_search_result_cure(self):

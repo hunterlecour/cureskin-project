@@ -12,8 +12,8 @@ def browser_init(context, test_name):
     :param context: Behave context
     """
     # # CHROME DRIVER
-    service = Chrome_Service(executable_path=ChromeDriverManager().install())
-    context.driver = webdriver.Chrome(service=service)
+    #service = Chrome_Service(executable_path=ChromeDriverManager().install())
+    #context.driver = webdriver.Chrome(service=service)
 
     # # HEADLESS MODE ####
     # # CHROME
@@ -52,6 +52,12 @@ def browser_init(context, test_name):
     # }
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
     # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    #
+    ## Mobile Web Emulator ##
+    mobile_emulation = {"deviceName": "iPhone 12 Pro"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    context.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
     #
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
