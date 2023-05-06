@@ -18,31 +18,31 @@ class Main(Page):
     SUNSCREEN_PRODUCT_TITLE = (By.CSS_SELECTOR, 'div.product__title h1.h2')
     FACE_PRODUCT = (By.CSS_SELECTOR, 'a.full-unstyled-link[href="/collections/face/products/gentle-cleanse-face-foam"]')
     FACE_PRODUCT_TITLE = (By.CSS_SELECTOR, 'div.product__title')
+    POP_UP_CLOSE = (By.XPATH, "//button[@class='popup-close']")
+    OUR_POLICIES = (By.XPATH, "//h2[contains(text(), 'Our policies')]")
 
     def open_main_page(self):
         self.open_url('https://shop.cureskin.com/')
+        self.wait_for_element_click(*self.POP_UP_CLOSE)
 
     def click_on_tos(self):
-        self.click(*self.TERMS_OF_SERVICE)
+        self.wait_for_element_click(*self.OUR_POLICIES)
+        self.wait_for_element_click(*self.TERMS_OF_SERVICE)
 
     def click_shop_by_prod(self):
-        self.click(*self.SHOP_BY_PRODUCT)
+        self.wait_for_element_click(*self.SHOP_BY_PRODUCT)
 
     def click_on_face_washes(self):
-        sleep(1)
-        # self.driver.wait.until(EC.element_to_be_clickable(*self.FACE_WASHES_BUTTON)).click()
-        self.click(*self.FACE_WASHES_BUTTON)
+        self.wait_for_element_click(*self.FACE_WASHES_BUTTON)
 
     def click_on_sunscreens(self):
-        sleep(1)
-        self.click(*self.SUNSCREENS_BUTTON)
+        self.wait_for_element_click(*self.SUNSCREENS_BUTTON)
 
     def click_sunscreen_product(self):
         self.click(*self.SUNSCREEN_PRODUCT)
 
     def click_on_face(self):
-        sleep(1)
-        self.click(*self.FACE_BUTTON)
+        self.wait_for_element_click(*self.FACE_BUTTON)
 
     def click_on_shop_by_cat(self):
         self.click(*self.SHOP_BY_CATEGORY)
@@ -51,8 +51,7 @@ class Main(Page):
         self.click(*self.FACE_PRODUCT)
 
     def click_on_body(self):
-        sleep(1)
-        self.click(*self.BODY_BUTTON)
+        self.wait_for_element_click(*self.BODY_BUTTON)
 
     def verify_tos_opens(self, text):
         self.verify_element(text, *self.TERMS_OF_SERVICE_TITLE)

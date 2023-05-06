@@ -50,6 +50,7 @@ def click_on_first_face_product(context):
 def click_on_body(context):
     context.app.main_page.click_on_body()
 
+
 @when('Verify user is taken to {text}')
 def verify_on_face_page(context, text):
     context.app.main_page.verify_on_face_page(text)

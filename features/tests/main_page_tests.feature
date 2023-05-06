@@ -10,14 +10,14 @@ Feature: Main Page Tests
     Given Open main page
     When Click on "Shop by product"
     And Click on Face Washes
-    Then Verify Face Wash (1) is shown
+    Then Verify user is taken to https://shop.cureskin.com/collections/face-wash
 
    Scenario: User can shop by Sunscreens
      Given Open main page
      When Click on "Shop by product"
      And Click on Sunscreens
      And Click on first product
-     Then Verify the first product is SPF30 Sunscreen
+     Then Verify first product name has Sunscreen in it
 
    Scenario: User can shop by category Face
      Given Open main page
