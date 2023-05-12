@@ -51,6 +51,36 @@ def click_on_body(context):
     context.app.main_page.click_on_body()
 
 
+@when('Click on search bar icon')
+def search_bar_icon(context):
+    context.app.main_page.search_bar_icon()
+
+
+@when('Click on search bar and input {text}')
+def input_text_spf(context, text):
+    context.app.main_page.input_text_spf(text)
+
+
+@when('Click on refund policy')
+def click_on_refund_p(context):
+    context.app.main_page.click_on_refund_p()
+
+
+@when('Click on privacy policy')
+def click_on_privacy_p(context):
+    context.app.main_page.click_on_privacy_p()
+
+
+@when('Click on shipping policy')
+def click_on_shipping_p(context):
+    context.app.main_page.click_on_shipping_p()
+
+
+@when('Click submit')
+def click_submit(context):
+    context.app.main_page.click_submit()
+
+
 @when('Verify user is taken to {text}')
 def verify_on_face_page(context, text):
     context.app.main_page.verify_on_face_page(text)
@@ -74,5 +104,10 @@ def verify_first_product_sunscreen(context, text):
 @then('Verify first product name has {text} in it')
 def verify_face_product_title(context, text):
     context.app.main_page.verify_face_product_title(text)
+
+
+@then('Verify the results have {text}')
+def verify_spf_shown(context, text):
+    context.app.main_page.verify_spf_shown(text)
 
 

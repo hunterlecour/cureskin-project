@@ -24,3 +24,8 @@ def view_my_cart(context):
 @then('Verify {text} is visible')
 def verify_cart_page(context, text):
     context.app.product_page.verify_cart_page(text)
+
+
+@then('Delete and verify {text}')
+def verify_empty_cart(context, text):
+    context.app.product_page.verify_empty_cart(text)
